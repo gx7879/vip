@@ -1,5 +1,9 @@
 import "./index.css";
 
+function getapkUrl(name) {
+  return new URL(`/src/assets/${name}.apk`, import.meta.url).href;
+}
+
 function getImageUrl(name) {
   return new URL(`/src/assets/${name}.png`, import.meta.url).href;
 }
@@ -20,19 +24,19 @@ const template = `<div class="flex flex-col rounded-md p-4 shadow-xl">
 
 const data = [
   {
-    url: "./src/assets/SUNNEW.apk",
+    url: "SUNNEW",
     img: "sunshinetv",
     name: "晴天TV",
     enName: "SunshineTV",
   },
   {
-    url: "./src/assets/smarttube_stable.apk",
+    url: "smarttube_stable",
     img: "smartyoutube",
     name: "SmartYoutube",
     enName: "smartyoutube",
   },
   {
-    url: "./src/assets/mudvod-TVBOX-2.0.4-NOAD-NoUpdate-GDaily.org.apk",
+    url: "mudvod-TVBOX-2.0.4-NOAD-NoUpdate-GDaily.org",
     img: "nivod",
     name: "泥視頻",
     enName: "Nivod",
@@ -40,9 +44,8 @@ const data = [
 ];
 let content = "";
 for (let i = 0; i < data.length; i++) {
-  console.log(getImageUrl(data[i].img));
   content += template
-    .replace("{{url}}", data[i].url)
+    .replace("{{url}}", getapkUrl(data[i].url))
     .replace("{{img}}", getImageUrl(data[i].img))
     .replace("{{name}}", data[i].name)
     .replace("{{enName}}", data[i].enName);
