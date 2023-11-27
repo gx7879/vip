@@ -41,6 +41,12 @@ const data = [
     name: "泥視頻",
     enName: "Nivod",
   },
+  {
+    url: "netflix_v7.841_itmop.com",
+    img: "netflix",
+    name: "netflix",
+    enName: "netflix",
+  },
 ];
 let content = "";
 for (let i = 0; i < data.length; i++) {
